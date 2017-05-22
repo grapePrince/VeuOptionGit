@@ -6,10 +6,3 @@ export const viewMain = state => {
 	}
 };
 
-export const viewMailbox = state => {
-	if (state.view == "mailbox") {
-		return true;
-	} else {
-		return false;
-	}
-};
