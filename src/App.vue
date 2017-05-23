@@ -2,16 +2,20 @@
   <div id="app">
       <option_header></option_header>
       <option_main></option_main>
+      <defaultbox></defaultbox>
   </div>
 </template>
 
 <script>
-import OptionMain from "./components/OptionMain";
-import OptionHeader from "./components/OptionHeader";
+import Main from "./components/Main";
+import Header from "./components/Header";
+import DefaultBox from "./components/DefaultBox";
+
 export default {
   components: {
-    "option_main" : OptionMain,
-    "option_header" : OptionHeader
+    "option_main" : Main,
+    "option_header" : Header,
+    "defaultbox" : DefaultBox
   },
   created () {
         console.log("created App.vue");

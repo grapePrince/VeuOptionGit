@@ -1,9 +1,6 @@
-export const changeView = ({commit}, view) => {
-	commit('CHANGE_VIEW', view);
+export const gotomailbox = ({commit}) => {
+    commit('CHANGE_VIEW', "defaultbox");
 };
-export const changeDefaultbox = ({dispatch}, mailbox) => {
-	dispatch('CHANGE_DEFAULTBOX', mailbox);
-}
-export const changeSenderName = ({dispatch}, name) => {
-	dispatch('CHANGE_SENDERNAME', name);
-}
+export const gotomain = ({commit}) => {
+    commit('CHANGE_VIEW', "main");
+};

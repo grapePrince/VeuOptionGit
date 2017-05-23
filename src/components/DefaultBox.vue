@@ -1,26 +1,25 @@
 <template>
-<div v-if="viewMailbox">
-    <div>
+    <div v-if="viewBox">
         <section class="setting_body">
             <ul class="set_lst_sub">
-            <!--
-                <li v-for="mailbox in mailboxes" style="display: block;">
-                    <input type="radio" :id="mailbox.id" name="mailbox" data-clickcr="stl*d.all" value="on">
-                    <label for="all">{{mailbox.title}}</label>
+                <li v-for="folder in folderList" style="display: block;">
+                    <input type="radio" :id="folder.id" name="mailbox" data-clickcr="stl*d.all" value="on">
+                    <label for="all">{{folder.name}}</label>
                 </li>
-            -->    
-            </ul>    
+            </ul>
         </section>
     </div>
-</div>
 </template>
 
-<scripts>
-import { mapGetters, mapActions } from "vuex";
+<script>
+import { mapState, mapGetters, mapActions } from 'vuex';
+import * as Constants from '../constants';
 
 export default {
-    created () {
-        console.log("created");
+    computed: {
+        ...mapState({
+            folderList : 'folderList'
+        }),
     }
-} 
-</scripts>
+}
+</script>

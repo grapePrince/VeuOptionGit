@@ -80,7 +80,7 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex';
-import * as Constants from '../constants.js';
+import * as Constants from '../constants';
 
 export default {
     computed: {
@@ -107,9 +107,11 @@ export default {
             return Constants.GMT_STRING[this.$store.state.timeZone];
         }
     },
-    methods: mapActions([
-        'gotomailbox'
-    ]),
+    methods: {
+        ...mapActions({
+          gotomailbox: 'gotomailbox'
+        })
+    },
     created () {
         console.log("OptionMain created");
     }
