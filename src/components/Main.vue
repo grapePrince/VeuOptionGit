@@ -1,5 +1,15 @@
 <template>
-    <div v-if="viewMain">
+    <transition 
+        name="main-classes-transition"
+        v-bind:enter-active-class="transitionClassMainEnterActive"
+        v-bind:leave-active-class="transitionClassMainLeaveActive"
+    >
+    <div v-show="viewMain" v-bind:style="layerDepthMain">
+        <header class="header">
+            <div class="hd_box">
+                <h3 class="hd_tit">설정</h3>
+            </div>
+        </header> 
         <section class="setting_body">
             <ul class="set_lst">
                 <li>
@@ -76,21 +86,26 @@
             </address>
         </section>
     </div>
+    </transition>
 </template>
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex';
 import * as Constants from '../constants';
+import * as Utils from '../utils';
 
 export default {
     computed: {
-        ...mapState({
-            defaultBoxName : 'defaultBoxName',
-            senderName : 'senderName',
-            fitScreen : 'fitScreen',
-            useFlicking : 'useFlicking',
-            currentmobileSign : 'currentmobileSign'
-        }),
+        ...mapState([
+            'defaultBoxName',
+            'senderName',
+            'fitScreen',
+            'useFlicking',
+            'currentmobileSign',
+            'transitionClassMainEnterActive',
+            'transitionClassMainLeaveActive',
+            'layerDepthMain'
+        ]),
         ...mapGetters({
             viewMain: 'viewMain',
         }),
@@ -108,9 +123,9 @@ export default {
         }
     },
     methods: {
-        ...mapActions({
-          gotomailbox: 'gotomailbox'
-        })
+        gotomailbox() {
+            this.$store.dispatch("gotomailbox");
+        }
     },
     created () {
         console.log("OptionMain created");

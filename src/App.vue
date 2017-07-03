@@ -1,6 +1,5 @@
 <template>
-  <div id="app">
-      <option_header></option_header>
+  <div id="app" class="cover_setting">
       <option_main></option_main>
       <defaultbox></defaultbox>
   </div>
@@ -8,13 +7,11 @@
 
 <script>
 import Main from "./components/Main";
-import Header from "./components/Header";
 import DefaultBox from "./components/DefaultBox";
 
 export default {
   components: {
     "option_main" : Main,
-    "option_header" : Header,
     "defaultbox" : DefaultBox
   },
   created () {
